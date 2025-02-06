@@ -618,7 +618,7 @@ kubectl get svc -n default -o wide
 ### 9.1 Clone Nginx Gateway Fabric from github
 
 ```bash
-cd namespace
+cd namespaces
 git clone -b release-1.6 https://github.com/nginx/nginx-gateway-fabric.git
 cd nginx-gateway-fabric
 ```
