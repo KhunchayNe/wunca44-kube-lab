@@ -168,6 +168,7 @@ sudo sh -c "echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf" && \
 sudo sysctl -p
 
 # สำหรับทุก package ที่มาจาก network 10.0.2.0/24 ให้ทำการ Masquerade หลังออกไป (ที่ Interface Internal Network ของ VM master1)
+# เปลี่ยน enp0s8 เป็น cardที่ถูกต้อง (bride)
 sudo iptables -t nat -L -nv
 sudo iptables -t nat -A POSTROUTING -o enp0s8 -s 10.0.2.0/24 -j MASQUERADE
 ```
@@ -233,7 +234,7 @@ sudo apt upgrade -y && \
 sudo apt install gcc make perl build-essential bzip2 tar apt-transport-https ca-certificates curl gpg git -y
 ```
 
-### Disable Swap
+### Disable Swap (เพิ่อให้ใช้ ram อย่างเดียว)
 
 ```bash
 sudo swapoff -a && \
